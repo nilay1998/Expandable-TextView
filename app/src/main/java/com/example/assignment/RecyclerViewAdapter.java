@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ms.square.android.expandabletextview.ExpandableTextView;
+
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
@@ -43,10 +45,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        TextView textView;
+        ExpandableTextView textView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView=itemView.findViewById(R.id.textView);
+            textView=itemView.findViewById(R.id.expand_text_view);
         }
     }
 }

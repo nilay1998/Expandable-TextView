@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 docs =new ArrayList<>((Arrays.asList(response.body().getResponse().getDocs())));
 
                 for (int i = 0; i < docs.size(); i++) {
-                    text.add(docs.get(i).getTitle_display());
+                    text.add(docs.get(i).getAbstract()[0].trim());
                 }
                 recyclerViewAdapter.notifyDataSetChanged();
             }

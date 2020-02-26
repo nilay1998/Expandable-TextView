@@ -31,4 +31,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
 
     implementation "androidx.recyclerview:recyclerview:1.1.0"
+
+    compile 'com.ms-square:expandableTextView:0.1.4'
 }
