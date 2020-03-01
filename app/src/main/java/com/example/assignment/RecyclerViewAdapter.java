@@ -52,8 +52,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        final Intent intent=new Intent(mContext,NextActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("id",mDocs.get(position).getId());
+        intent.putExtra("journal",mDocs.get(position).getJournal());
+        intent.putExtra("eissn",mDocs.get(position).getEissn());
+        intent.putExtra("publication_date",mDocs.get(position).getPublication_date());
+        intent.putExtra("article_type",mDocs.get(position).getArticle_type());
+        intent.putExtra("author_display",mDocs.get(position).getAuthor_display());
+        intent.putExtra("abstract", mDocs.get(position).getAbstract()[0].trim());
+        intent.putExtra("title_display",mDocs.get(position).getTitle_display());
+        intent.putExtra("score",mDocs.get(position).getScore());
+
         final String text ="ABSTRACT: "+ mDocs.get(position).getAbstract()[0].trim();
         final String title="TITLE: "+mDocs.get(position).getTitle_display();
+
         if(text.length()>500)
         {
             SpannableString ss=new SpannableString(title+"\n\n"+text.substring(0,500)+"... \n Read More");
@@ -65,17 +78,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             ClickableSpan clickableSpan=new ClickableSpan() {
                 @Override
                 public void onClick(@NonNull View view) {
-                    Intent intent=new Intent(mContext,NextActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.putExtra("id",mDocs.get(position).getId());
-                    intent.putExtra("journal",mDocs.get(position).getJournal());
-                    intent.putExtra("eissn",mDocs.get(position).getEissn());
-                    intent.putExtra("publication_date",mDocs.get(position).getPublication_date());
-                    intent.putExtra("article_type",mDocs.get(position).getArticle_type());
-                    intent.putExtra("author_display",mDocs.get(position).getAuthor_display());
-                    intent.putExtra("abstract", mDocs.get(position).getAbstract()[0].trim());
-                    intent.putExtra("title_display",mDocs.get(position).getTitle_display());
-                    intent.putExtra("score",mDocs.get(position).getScore());
+
                     mContext.startActivity(intent);
                 }
                 @Override
@@ -100,19 +103,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             ClickableSpan clickableSpan=new ClickableSpan() {
                 @Override
                 public void onClick(@NonNull View view) {
-                    Intent intent=new Intent(mContext,NextActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                    intent.putExtra("id",mDocs.get(position).getId());
-                    intent.putExtra("journal",mDocs.get(position).getJournal());
-                    intent.putExtra("eissn",mDocs.get(position).getEissn());
-                    intent.putExtra("publication_date",mDocs.get(position).getPublication_date());
-                    intent.putExtra("article_type",mDocs.get(position).getArticle_type());
-                    intent.putExtra("author_display",mDocs.get(position).getAuthor_display());
-                    intent.putExtra("abstract", mDocs.get(position).getAbstract()[0].trim());
-                    intent.putExtra("title_display",mDocs.get(position).getTitle_display());
-                    intent.putExtra("score",mDocs.get(position).getScore());
-
                     mContext.startActivity(intent);
                 }
                 @Override

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         Log.e(TAG, "onCreate: ");
 
         final ProgressBar progressBar=findViewById(R.id.progress_bar);
+        //progressBar.getProgressDrawable().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN);
         recyclerView=findViewById(R.id.recyclerview);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
