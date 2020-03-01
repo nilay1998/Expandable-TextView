@@ -118,6 +118,6 @@ public class Docs
     @Override
     public String toString()
     {
-        return "ClassPojo [score = "+score+", journal = "+journal+", article_type = "+article_type+", title_display = "+title_display+", author_display = "+author_display+", publication_date = "+publication_date+", eissn = "+eissn+", id = "+id+", abstract = "+abs+"]";
+        return "score = "+score+", journal = "+journal+", article_type = "+article_type+", title_display = "+title_display+", author_display = "+author_display+", publication_date = "+publication_date+", eissn = "+eissn+", id = "+id+", abstract = "+abs;
     }
 }

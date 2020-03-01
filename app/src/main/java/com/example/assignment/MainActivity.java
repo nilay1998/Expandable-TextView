@@ -28,10 +28,7 @@ import static android.content.ContentValues.TAG;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Docs> docs = new ArrayList<>();
-    ArrayList<String> text = new ArrayList<>();
     RecyclerView recyclerView;
-    RecyclerViewAdapter recyclerViewAdapter;
-    private static Bundle mBundleRecyclerViewState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         final ProgressBar progressBar=findViewById(R.id.progress_bar);
         recyclerView=findViewById(R.id.recyclerview);
-        recyclerViewAdapter=new RecyclerViewAdapter(getApplicationContext(),text);
-        recyclerView.setAdapter(recyclerViewAdapter);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         if(savedInstanceState==null)
@@ -58,10 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
                     docs =new ArrayList<>((Arrays.asList(response.body().getResponse().getDocs())));
 
-                    for (int i = 0; i < docs.size(); i++) {
-                        text.add(docs.get(i).getAbstract()[0].trim());
-                    }
-                    recyclerViewAdapter.notifyDataSetChanged();
+                    recyclerView.setAdapter(new RecyclerViewAdapter(getApplicationContext(),docs));
                 }
 
                 @Override
@@ -90,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     {
         if(recyclerView.getAdapter()==null)
         {
-            recyclerView.setAdapter(new RecyclerViewAdapter(getApplicationContext(),text));
+            recyclerView.setAdapter(new RecyclerViewAdapter(getApplicationContext(),docs));
         }
         super.onResume();
         Log.e(TAG, "onResume: ");
